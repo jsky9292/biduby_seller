@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일본 구매대행 마스터 가이드 2025 - 비밀번호 확인</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #FEE500 0%, #FFC700 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #191919;
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .password-group {
+            margin-bottom: 30px;
+        }
+        
+        .password-label {
+            display: block;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: #FEE500;
+            box-shadow: 0 0 0 3px rgba(254, 229, 0, 0.2);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #191919;
+            color: #FEE500;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .hint {
+            color: #999;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+        
+        .features {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #FEE500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+        
+        #contentFrame {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            border: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+        
+        .loading {
+            display: none;
+            color: #666;
+            margin-top: 20px;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,.1);
+            border-radius: 50%;
+            border-top-color: #FEE500;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <div class="logo">📚</div>
+        <h1>일본 구매대행 마스터 가이드</h1>
+        <div class="subtitle">2025년 26,000건 빅데이터 분석 완전판</div>
+        
+        <div class="password-group">
+            <label class="password-label" for="password">비밀번호를 입력하세요</label>
+            <input 
+                type="password" 
+                id="password" 
+                class="password-input" 
+                placeholder="비밀번호 입력"
+                onkeypress="if(event.keyCode==13) checkPassword()"
+            >
+        </div>
+        
+        <button class="submit-btn" onclick="checkPassword()">가이드북 열람하기</button>
+        
+        <div class="error-message" id="errorMessage">
+            비밀번호가 일치하지 않습니다. 다시 시도해주세요.
+        </div>
+        
+        <div class="loading" id="loadingMessage">
+            <div class="spinner"></div>
+            <p>가이드북을 불러오는 중...</p>
+        </div>
+        
+        <div class="hint">
+            💡 힌트: 비드바이 영문명
+        </div>
+        
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>2025년 실거래 26,000건 데이터 분석</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>카테고리별 수익성 완전 분석</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>비드바이 코리아 활용법 포함</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>월 500만원 수익 달성 로드맵</span>
+            </div>
+        </div>
+    </div>
+    
+    <iframe id="contentFrame"></iframe>
+    
+    <script>
+        // 비밀번호 (실제로는 더 안전한 방법을 사용해야 하지만, GitHub Pages는 서버사이드 처리가 불가능)
+        const correctPassword = 'bidbuy';
+        
+        // 실제 컨텐츠 URL (GitHub에 업로드 후 수정 필요)
+        const contentUrl = './ebook_complete_improved.html';
+        
+        function checkPassword() {
+            const inputPassword = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const loginContainer = document.getElementById('loginContainer');
+            const contentFrame = document.getElementById('contentFrame');
+            
+            if (inputPassword.toLowerCase() === correctPassword) {
+                // 비밀번호가 맞으면
+                errorMessage.style.display = 'none';
+                loadingMessage.style.display = 'block';
+                
+                // 로컬 스토리지에 인증 정보 저장 (세션 유지)
+                sessionStorage.setItem('authenticated', 'true');
+                sessionStorage.setItem('authTime', Date.now());
+                
+                // 컨텐츠 로드
+                setTimeout(() => {
+                    loginContainer.style.display = 'none';
+                    contentFrame.style.display = 'block';
+                    contentFrame.src = contentUrl;
+                }, 1000);
+                
+            } else {
+                // 비밀번호가 틀리면
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+                
+                // 애니메이션 효과
+                document.getElementById('password').style.borderColor = '#e74c3c';
+                setTimeout(() => {
+                    document.getElementById('password').style.borderColor = '#ddd';
+                }, 1000);
+            }
+        }
+        
+        // 페이지 로드 시 이미 인증되었는지 확인
+        window.onload = function() {
+            const authenticated = sessionStorage.getItem('authenticated');
+            const authTime = sessionStorage.getItem('authTime');
+            
+            // 30분 이내에 인증했으면 자동으로 컨텐츠 표시
+            if (authenticated === 'true' && authTime) {
+                const timeDiff = Date.now() - parseInt(authTime);
+                if (timeDiff < 30 * 60 * 1000) { // 30분
+                    document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('contentFrame').style.display = 'block';
+                    document.getElementById('contentFrame').src = contentUrl;
+                } else {
+                    // 30분이 지났으면 인증 정보 삭제
+                    sessionStorage.removeItem('authenticated');
+                    sessionStorage.removeItem('authTime');
+                }
+            }
+        }
+        
+        // Enter 키 이벤트는 HTML에서 처리
+    </script>
+</body>
+</html>
