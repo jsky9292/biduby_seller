@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>일본 구매대행 마스터 가이드 2025 - 모바일 최적화</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --primary-color: #3A2929;
+            --secondary-color: #FEE500;
+            --accent-color: #FAE100;
+            --gold-color: #FFC700;
+            --success-color: #5CB85C;
+            --warning-color: #F7E600;
+            --text-color: #191919;
+            --light-bg: #FFF9E6;
+            --kakao-black: #000000;
+            --kakao-brown: #3C1E1E;
+            --mobile-padding: 16px;
+            --desktop-padding: 40px;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* 모바일 네비게이션 */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 10px var(--mobile-padding);
+        }
+        
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: calc(100vh - 60px);
+            background: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            left: 0;
+        }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        .toc-mobile {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-mobile li {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .toc-mobile a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        
+        .toc-mobile a:active,
+        .toc-mobile a:hover {
+            background: var(--light-bg);
+        }
+        
+        .toc-mobile .chapter-num {
+            display: inline-block;
+            width: 50px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* 페이지 스타일 */
+        .page {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--desktop-padding);
+            background: white;
+            min-height: 100vh;
+        }
+        
+        /* 표지 */
+        .cover-page {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #FEE500 0%, #FFC700 100%);
+            color: var(--kakao-black);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .cover-badge {
+            background: var(--kakao-black);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cover-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: clamp(36px, 10vw, 72px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--kakao-black);
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.3);
+            line-height: 1.2;
+        }
+        
+        .cover-subtitle {
+            font-size: clamp(18px, 5vw, 32px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--kakao-brown);
+        }
+        
+        .cover-data-badge {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: clamp(14px, 3vw, 22px);
+            font-weight: 600;
+            margin: 20px 0;
+            border: 2px solid var(--kakao-black);
+            color: var(--kakao-black);
+        }
+        
+        .cover-author {
+            font-size: clamp(14px, 3vw, 18px);
+            color: var(--kakao-brown);
+            margin-top: 20px;
+        }
+        
+        /* 제목 스타일 */
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: clamp(28px, 6vw, 42px);
+            color: var(--kakao-black);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+            word-break: keep-all;
+        }
+        
+        h2 {
+            font-size: clamp(22px, 5vw, 32px);
+            color: var(--kakao-black);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid var(--secondary-color);
+            word-break: keep-all;
+        }
+        
+        h3 {
+            font-size: clamp(18px, 4vw, 24px);
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+        
+        h4 {
+            font-size: clamp(16px, 3.5vw, 20px);
+            color: var(--primary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            word-break: keep-all;
+        }
+        
+        /* 본문 */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: clamp(14px, 2.5vw, 16px);
+            line-height: 1.8;
+            word-break: keep-all;
+        }
+        
+        /* 박스 스타일 */
+        .textbook-box {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            word-break: keep-all;
+        }
+        
+        .key-point-box {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FEE500 20%);
+            border: 2px solid var(--kakao-black);
+            border-left-width: 6px;
+        }
+        
+        .definition-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d1ecf1 100%);
+            border: 2px solid #3498db;
+            border-left-width: 6px;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #ffe6e6 0%, #ffcccc 100%);
+            border: 2px solid #e74c3c;
+            border-left-width: 6px;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #e6ffe6 0%, #ccffcc 100%);
+            border: 2px solid var(--success-color);
+            border-left-width: 6px;
+        }
+        
+        .pro-tip-box {
+            background: linear-gradient(135deg, #f3e5ff 0%, #e1ccff 100%);
+            border: 2px solid #9b59b6;
+            border-left-width: 6px;
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #f39c12;
+            border-left-width: 6px;
+        }
+        
+        /* 표 스타일 - 모바일 최적화 */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px -16px;
+            padding: 0 16px;
+        }
+        
+        table {
+            width: 100%;
+            min-width: 500px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: clamp(12px, 2vw, 15px);
+            background: white;
+        }
+        
+        table caption {
+            font-size: clamp(14px, 3vw, 18px);
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            text-align: left;
+            padding: 0 10px;
+        }
+        
+        table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: white;
+        }
+        
+        table tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+        
+        /* 스크롤 힌트 */
+        .table-wrapper::after {
+            content: '← 좌우로 스크롤 →';
+            display: block;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        /* 단계별 가이드 */
+        .step-guide {
+            margin: 20px 0;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(to right, #f8f9fa 0%, white 100%);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h4 {
+            margin-top: 0;
+        }
+        
+        /* 체크리스트 */
+        .checklist {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .checklist-title {
+            font-size: clamp(16px, 3vw, 20px);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+        
+        .checklist-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 4px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* 용어 사전 */
+        .glossary-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 5px;
+        }
+        
+        .glossary-term {
+            font-size: clamp(16px, 3vw, 18px);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .glossary-term-jp {
+            font-size: clamp(12px, 2vw, 14px);
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+        
+        .glossary-definition {
+            font-size: clamp(14px, 2.5vw, 15px);
+            line-height: 1.6;
+        }
+        
+        /* 데이터 카드 */
+        .data-viz {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+        }
+        
+        .data-viz-title {
+            font-size: clamp(16px, 3vw, 20px);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .stat-card {
+            display: inline-block;
+            width: calc(50% - 10px);
+            margin: 5px;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2980b9 100%);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: clamp(20px, 4vw, 32px);
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: clamp(12px, 2vw, 14px);
+            opacity: 0.9;
+        }
+        
+        /* 리스트 스타일 */
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+        
+        /* 강조 스타일 */
+        strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background: linear-gradient(transparent 60%, var(--secondary-color) 60%);
+            padding: 2px 4px;
+        }
+        
+        .emphasis {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+        
+        /* FAQ 스타일 */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-number {
+            background: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+        
+        .faq-answer {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* 페이지 번호 */
+        .page-number {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        
+        /* 챕터 헤더 */
+        .chapter-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 30px 20px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+        }
+        
+        .chapter-number {
+            font-size: clamp(16px, 3vw, 24px);
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .chapter-title {
+            font-size: clamp(24px, 5vw, 48px);
+            font-weight: 700;
+        }
+        
+        /* Top 버튼 */
+        .btn-top {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-top:active {
+            transform: scale(0.95);
+        }
+        
+        .btn-top.show {
+            display: block;
+        }
+        
+        /* 모바일 반응형 */
+        @media screen and (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .mobile-nav {
+                display: block;
+            }
+            
+            .page {
+                padding: var(--mobile-padding);
+                box-shadow: none;
+            }
+            
+            .cover-page {
+                margin-top: -60px;
+                padding-top: 100px;
+            }
+            
+            .chapter-header {
+                margin: -16px -16px 20px -16px;
+                padding: 20px 16px;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto 10px;
+            }
+            
+            .stat-card {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+                position: sticky;
+                left: 0;
+                background: inherit;
+                z-index: 1;
+            }
+            
+            ul, ol {
+                padding-left: 20px;
+            }
+            
+            .textbook-box {
+                margin: 15px -10px;
+                padding: 15px;
+                border-radius: 0;
+            }
+            
+            .table-wrapper {
+                margin: 20px -16px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .cover-badge {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+            
+            table {
+                font-size: 11px;
+            }
+            
+            table th, table td {
+                padding: 6px;
+            }
+        }
+        
+        /* 프린트 스타일 */
+        @media print {
+            .mobile-nav,
+            .btn-top,
+            .table-wrapper::after {
+                display: none !important;
+            }
+            
+            body {
+                padding: 0;
+                background: white;
+            }
+            
+            .page {
+                max-width: none;
+                box-shadow: none;
+                padding: 20mm;
+                page-break-after: always;
+            }
+            
+            .textbook-box,
+            .step-item,
+            .glossary-item,
+            .checklist,
+            table,
+            .data-viz {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 모바일 네비게이션 -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div style="font-weight: 700; color: var(--primary-color);">일본 구매대행 가이드</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- 모바일 메뉴 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="toc-mobile">
+            <li><a href="#cover"><span class="chapter-num">표지</span>일본 구매대행 마스터 가이드</a></li>
+            <li><a href="#intro"><span class="chapter-num">서문</span>이 책을 읽기 전에</a></li>
+            <li><a href="#part1"><span class="chapter-num">제1부</span>기초 개념 이해</a></li>
+            <li><a href="#part2"><span class="chapter-num">제2부</span>비드바이 코리아 활용</a></li>
+            <li><a href="#part3"><span class="chapter-num">제3부</span>수익성 상품 발굴</a></li>
+            <li><a href="#part4"><span class="chapter-num">제4부</span>일본 쇼핑몰 정복</a></li>
+            <li><a href="#part5"><span class="chapter-num">제5부</span>한국 판매 채널</a></li>
+            <li><a href="#part6"><span class="chapter-num">제6부</span>실무 프로세스</a></li>
+            <li><a href="#part7"><span class="chapter-num">제7부</span>리스크 관리</a></li>
+            <li><a href="#part8"><span class="chapter-num">제8부</span>수익 극대화</a></li>
+            <li><a href="#appendix"><span class="chapter-num">부록</span>실전 도구 모음</a></li>
+        </ul>
+    </div>
+    
+    <!-- 메뉴 오버레이 -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+    
+    <!-- Top 버튼 -->
+    <button class="btn-top" id="btnTop" aria-label="맨 위로">↑</button>
+    
+    <!-- 표지 -->
+    <div class="page cover-page" id="cover">
+        <div class="cover-badge">2025 PREMIUM EDITION</div>
+        <h1 class="cover-title">일본 구매대행<br>마스터 가이드</h1>
+        <div class="cover-subtitle">초보자부터 전문가까지</div>
+        <div class="cover-subtitle">월 500만원 수익 창출 완벽 매뉴얼</div>
+        <div class="cover-data-badge">
+            🎯 2024-2025년 46,222건 실거래 빅데이터 분석<br>
+            📊 12개 카테고리 완전 분석
+        </div>
+        <div class="cover-author">비드바이 코리아 공식 가이드북</div>
+    </div>
+    
+    <!-- 서문 -->
+    <div class="page" id="intro">
+        <div class="chapter-header">
+            <div class="chapter-number">INTRODUCTION</div>
+            <div class="chapter-title">이 책을 읽기 전에</div>
+        </div>
+        
+        <div class="key-point-box textbook-box">
+            <h3>📌 이 책의 특별함</h3>
+            <p>본 가이드북은 <strong>2024-2025년 실제 거래된 46,222건의 빅데이터</strong>를 철저히 분석하여 작성되었습니다. 이론이 아닌 실전, 추측이 아닌 데이터에 기반한 검증된 노하우만을 담았습니다.</p>
+        </div>
+        
+        <h2>왜 일본 구매대행인가?</h2>
+        
+        <p>일본 구매대행은 <strong>초기 자본 100만원</strong>으로 시작할 수 있는 가장 현실적인 창업 아이템입니다. 특별한 기술이나 자격증 없이도, 데이터 기반의 체계적인 접근만 있다면 누구나 월 500만원 이상의 안정적인 수익을 창출할 수 있습니다.</p>
+        
+        <div class="data-viz">
+            <div class="data-viz-title">2025년 일본 구매대행 시장 현황</div>
+            <div style="text-align: center;">
+                <div class="stat-card">
+                    <div class="stat-number">46,222건</div>
+                    <div class="stat-label">분석 데이터</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--success-color) 0%, #229954 100%);">
+                    <div class="stat-number">186만원</div>
+                    <div class="stat-label">평균 월수익</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--gold-color) 0%, #e67e22 100%);">
+                    <div class="stat-number">25%</div>
+                    <div class="stat-label">평균 마진율</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                    <div class="stat-number">3개월</div>
+                    <div class="stat-label">손익분기점</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>이 책을 통해 얻을 수 있는 것</h2>
+        
+        <div class="checklist">
+            <div class="checklist-title">학습 목표 체크리스트</div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>46,222건 빅데이터 기반 황금 카테고리 선정법</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>비드바이 코리아 200% 활용 노하우</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>월 100만원에서 500만원까지 단계별 성장 전략</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>일본어 모르고도 구매하는 실전 기술</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>세금·통관·법률 완벽 대응 매뉴얼</span>
+            </div>
+        </div>
+        
+        <div class="page-number">7</div>
+    </div>
+    
+    <!-- 제1부: 기초 개념 이해 -->
+    <div class="page" id="part1">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 1</div>
+            <div class="chapter-title">기초 개념 이해</div>
+        </div>
+        
+        <h2>1.1 일본 구매대행 vs 경매대행의 차이</h2>
+        
+        <div class="definition-box textbook-box">
+            <h3>핵심 개념 정리</h3>
+            <p><strong>구매대행</strong>: 일본 온라인 쇼핑몰(아마존, 라쿠텐 등)에서 정가 상품을 대신 구매해주는 서비스</p>
+            <p><strong>경매대행</strong>: 야후옥션, 메르카리 등 경매/중고 플랫폼에서 입찰·낙찰을 대행하는 서비스</p>
+        </div>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>구매대행 vs 경매대행 상세 비교</caption>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>구매대행</th>
+                        <th>경매대행</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>대상 플랫폼</strong></td>
+                        <td>아마존, 라쿠텐, 조조타운</td>
+                        <td>야후옥션, 메르카리, 라쿠마</td>
+                    </tr>
+                    <tr>
+                        <td><strong>상품 상태</strong></td>
+                        <td>신품 (정품 보증)</td>
+                        <td>중고/신품 혼재</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가격 결정</strong></td>
+                        <td>고정가 (즉시 구매가)</td>
+                        <td>경매가 (변동 가능)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>구매 확실성</strong></td>
+                        <td>100% (재고만 있으면)</td>
+                        <td>낙찰 경쟁 필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>수수료율</strong></td>
+                        <td>상품가의 8%</td>
+                        <td>낙찰가의 8-10%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>배송 기간</strong></td>
+                        <td>3-5일</td>
+                        <td>5-10일</td>
+                    </tr>
+                    <tr>
+                        <td><strong>초보자 추천도</strong></td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="tip-box textbook-box">
+            <h3>초보자를 위한 선택 가이드</h3>
+            <p><strong>구매대행으로 시작하세요!</strong> 리스크가 낮고 확실한 수익을 보장받을 수 있습니다. 3개월 이상 경험을 쌓은 후 경매대행으로 확장하는 것이 안전합니다.</p>
+        </div>
+        
+        <h2>1.2 필요 자금과 예상 수익</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>초기 자금: 100-300만원</h4>
+                    <p>상품 구매 자금 70만원 + 운영 자금 30만원이면 충분합니다.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>1개월차: 50-100만원 수익</h4>
+                    <p>하루 2-3건 판매, 건당 마진 15,000원 기준</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>3개월차: 150-200만원 수익</h4>
+                    <p>고객층 확보, 반복 구매 증가로 안정화</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>6개월차: 300-500만원 수익</h4>
+                    <p>멀티 채널 운영, 대량 구매로 수익 극대화</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>1.3 비드바이 코리아란?</h2>
+        
+        <p><strong>비드바이 코리아(BidBuy Korea)</strong>는 일본 상품 구매를 대행해주는 국내 1위 플랫폼입니다. 복잡한 일본 구매 과정을 자동화하고, 한국어 고객 서비스를 제공하여 누구나 쉽게 일본 상품을 구매할 수 있도록 지원합니다.</p>
+        
+        <div class="key-point-box textbook-box">
+            <h3>비드바이 코리아의 핵심 장점</h3>
+            <ul>
+                <li>일본 5대 쇼핑몰 통합 검색</li>
+                <li>실시간 환율 적용 및 자동 계산</li>
+                <li>통관·배송 일괄 처리</li>
+                <li>한국어 고객 서비스 24시간 운영</li>
+                <li>구매 실패 시 100% 환불 보장</li>
+            </ul>
+        </div>
+        
+        <div class="page-number">9-15</div>
+    </div>
+    
+    <!-- 제2부: 비드바이 코리아 200% 활용법 -->
+    <div class="page" id="part2">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 2</div>
+            <div class="chapter-title">비드바이 코리아 200% 활용법</div>
+        </div>
+        
+        <h2>2.1 회원가입부터 첫 구매까지</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>회원가입 및 인증</h4>
+                    <p>이메일 인증 → 휴대폰 인증 → 개인통관고유부호 등록</p>
+                    <p><strong>TIP:</strong> 개인통관고유부호는 관세청 홈페이지에서 5분 안에 발급 가능</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>예치금 충전</h4>
+                    <p>최소 10만원부터 충전 가능. 카드/계좌이체 모두 지원</p>
+                    <p><strong>PRO TIP:</strong> 30만원 이상 충전 시 수수료 할인 혜택</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>상품 검색 및 주문</h4>
+                    <p>통합 검색 → 가격 비교 → 장바구니 담기 → 일괄 주문</p>
+                    <p><strong>핵심:</strong> 배송비 절약을 위해 같은 쇼핑몰 상품 묶음 구매</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>2.2 스마트한 검색 전략</h2>
+        
+        <div class="example-box textbook-box">
+            <h3>실전 검색 노하우</h3>
+            <p><strong>일본어 모르고도 검색하는 방법:</strong></p>
+            <ul>
+                <li>구글 번역기 + 이미지 검색 조합</li>
+                <li>아마존 ASIN 코드 직접 입력</li>
+                <li>카테고리별 베스트셀러 리스트 활용</li>
+                <li>관련 상품 추천 기능 적극 이용</li>
+            </ul>
+        </div>
+        
+        <h2>2.3 배송비 절감 전략</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>배송 방법별 비용 비교</caption>
+                <thead>
+                    <tr>
+                        <th>배송 방법</th>
+                        <th>무게</th>
+                        <th>비용</th>
+                        <th>소요 기간</th>
+                        <th>추천 상품</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>EMS</strong></td>
+                        <td>~2kg</td>
+                        <td>15,000원</td>
+                        <td>3-4일</td>
+                        <td>고가 전자제품</td>
+                    </tr>
+                    <tr>
+                        <td><strong>항공소포</strong></td>
+                        <td>~5kg</td>
+                        <td>25,000원</td>
+                        <td>5-7일</td>
+                        <td>의류, 잡화</td>
+                    </tr>
+                    <tr>
+                        <td><strong>선편</strong></td>
+                        <td>~20kg</td>
+                        <td>35,000원</td>
+                        <td>10-14일</td>
+                        <td>대량 구매</td>
+                    </tr>
+                    <tr>
+                        <td><strong>묶음배송</strong></td>
+                        <td>제한없음</td>
+                        <td>건당 3,000원</td>
+                        <td>7-10일</td>
+                        <td>다품종 소량</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pro-tip-box textbook-box">
+            <h3>💡 배송비 절약 황금 공식</h3>
+            <p><strong>"같은 쇼핑몰 + 묶음 구매 + 선편 배송 = 최대 70% 절감"</strong></p>
+            <p>실제 사례: 개별 배송 시 10만원 → 묶음 선편 시 3만원</p>
+        </div>
+        
+        <h2>2.4 통관 및 세금 완벽 가이드</h2>
+        
+        <div class="warning-box textbook-box">
+            <h3>⚠️ 반드시 알아야 할 통관 규정</h3>
+            <ul>
+                <li><strong>면세 한도:</strong> 미화 $150 이하 (배송비 포함)</li>
+                <li><strong>관세율:</strong> 의류 13%, 가방 8%, 전자제품 8%</li>
+                <li><strong>부가세:</strong> (상품가 + 관세) × 10%</li>
+                <li><strong>통관 불가 품목:</strong> 식품, 의약품, 화장품(소량 제외)</li>
+            </ul>
+        </div>
+        
+        <div class="page-number">16-30</div>
+    </div>
+    
+    <!-- 제3부: 수익성 높은 상품 발굴법 -->
+    <div class="page" id="part3">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 3</div>
+            <div class="chapter-title">수익성 높은 상품 발굴법</div>
+        </div>
+        
+        <h2>3.1 46,222건 빅데이터가 말하는 황금 카테고리</h2>
+        
+        <div class="data-viz">
+            <div class="data-viz-title">카테고리별 수익성 분석 (2024-2025)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th>카테고리</th>
+                            <th>평균 마진율</th>
+                            <th>회전율</th>
+                            <th>종합 점수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: linear-gradient(90deg, #fff3cd 0%, white 100%);">
+                            <td><strong>1</strong></td>
+                            <td><strong>피규어/프라모델</strong></td>
+                            <td>35%</td>
+                            <td>월 15회</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>한정판 의류</strong></td>
+                            <td>42%</td>
+                            <td>월 8회</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>빈티지 시계</strong></td>
+                            <td>38%</td>
+                            <td>월 6회</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>게임 한정판</strong></td>
+                            <td>30%</td>
+                            <td>월 12회</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>브랜드 가방</strong></td>
+                            <td>25%</td>
+                            <td>월 10회</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h2>3.2 니치 마켓 공략법</h2>
+        
+        <div class="key-point-box textbook-box">
+            <h3>숨은 보석 같은 니치 시장</h3>
+            <ul>
+                <li><strong>일본 전통 공예품:</strong> 도자기, 칠기, 부채 (마진율 45%)</li>
+                <li><strong>철도 관련 굿즈:</strong> JR 한정 상품, 신칸센 모형 (마진율 40%)</li>
+                <li><strong>지역 한정 상품:</strong> 오사카, 교토 한정판 (마진율 50%)</li>
+                <li><strong>애니메이션 콜라보:</strong> 유니클로 X 애니 (마진율 35%)</li>
+            </ul>
+        </div>
+        
+        <h2>3.3 시즌별 전략 상품</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>월별 추천 상품 캘린더</caption>
+                <thead>
+                    <tr>
+                        <th>시기</th>
+                        <th>이벤트</th>
+                        <th>추천 상품</th>
+                        <th>예상 마진</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1월</strong></td>
+                        <td>신년 세일</td>
+                        <td>복주머니, 한정 굿즈</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3-4월</strong></td>
+                        <td>벚꽃 시즌</td>
+                        <td>사쿠라 한정판</td>
+                        <td>45%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7-8월</strong></td>
+                        <td>여름 축제</td>
+                        <td>유카타, 부채</td>
+                        <td>35%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10월</strong></td>
+                        <td>할로윈</td>
+                        <td>코스튬, 파티용품</td>
+                        <td>50%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11-12월</strong></td>
+                        <td>연말 세일</td>
+                        <td>한정판 세트</td>
+                        <td>40%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>3.4 트렌드 선점 전략</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>일본 트렌드 모니터링</h4>
+                    <p>Yahoo Japan 실시간 검색어, 라쿠텐 랭킹 매일 체크</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>SNS 트렌드 분석</h4>
+                    <p>인스타그램 #일본쇼핑, 트위터 트렌드 팔로우</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>선제적 재고 확보</h4>
+                    <p>트렌드 예측 → 소량 테스트 → 대량 구매</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">31-50</div>
+    </div>
+    
+    <!-- 제4부: 일본 쇼핑몰 정복 가이드 -->
+    <div class="page" id="part4">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 4</div>
+            <div class="chapter-title">일본 쇼핑몰 정복 가이드</div>
+        </div>
+        
+        <h2>4.1 아마존 재팬 완벽 공략</h2>
+        
+        <div class="definition-box textbook-box">
+            <h3>아마존 재팬의 특징</h3>
+            <ul>
+                <li><strong>장점:</strong> 빠른 배송, 정품 보증, 편리한 반품</li>
+                <li><strong>단점:</strong> 상대적으로 높은 가격</li>
+                <li><strong>추천 상품군:</strong> 전자제품, 서적, 생활용품</li>
+            </ul>
+        </div>
+        
+        <div class="pro-tip-box textbook-box">
+            <h3>아마존 숨은 기능 활용법</h3>
+            <ol>
+                <li><strong>타임세일:</strong> 매일 오전 9시, 오후 3시 체크</li>
+                <li><strong>정기구독 할인:</strong> 15% 추가 할인 가능</li>
+                <li><strong>아마존 한정상품:</strong> Amazon Exclusive 라벨 확인</li>
+                <li><strong>중고상품관:</strong> Warehouse Deals에서 30-50% 할인</li>
+            </ol>
+        </div>
+        
+        <h2>4.2 라쿠텐 포인트 극대화</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>라쿠텐 포인트 배율 이벤트</caption>
+                <thead>
+                    <tr>
+                        <th>이벤트</th>
+                        <th>포인트 배율</th>
+                        <th>개최 주기</th>
+                        <th>활용 전략</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>슈퍼세일</strong></td>
+                        <td>최대 44배</td>
+                        <td>3개월마다</td>
+                        <td>대량 구매 집중</td>
+                    </tr>
+                    <tr>
+                        <td><strong>마라톤</strong></td>
+                        <td>최대 10배</td>
+                        <td>매월</td>
+                        <td>10개 샵 순회</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5와 0의 날</strong></td>
+                        <td>5배</td>
+                        <td>5일, 10일, 15일...</td>
+                        <td>정기 구매</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>4.3 메르카리 중고 거래 노하우</h2>
+        
+        <div class="warning-box textbook-box">
+            <h3>메르카리 거래 시 주의사항</h3>
+            <ul>
+                <li>판매자 평점 4.5 이상만 거래</li>
+                <li>상품 사진 10장 이상 확인</li>
+                <li>가격 흥정은 10-20% 선에서</li>
+                <li>직거래 제안은 절대 거절</li>
+            </ul>
+        </div>
+        
+        <h2>4.4 야후옥션 입찰 전략</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>스나이핑 전략</h4>
+                    <p>종료 10초 전 입찰로 경쟁 최소화</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>자동입찰 설정</h4>
+                    <p>최대 금액 설정 후 시스템에 맡기기</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>묶음 입찰</h4>
+                    <p>같은 판매자 상품 동시 입찰로 배송비 절약</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>4.5 조조타운 패션 공략</h2>
+        
+        <div class="key-point-box textbook-box">
+            <h3>조조타운 시크릿 세일</h3>
+            <p><strong>회원 등급별 할인율:</strong></p>
+            <ul>
+                <li>레귤러: 5% 상시 할인</li>
+                <li>실버: 10% + 포인트 2배</li>
+                <li>골드: 15% + 포인트 3배</li>
+                <li>플래티넘: 20% + 포인트 5배 + 시크릿 세일 초대</li>
+            </ul>
+        </div>
+        
+        <div class="page-number">51-72</div>
+    </div>
+    
+    <!-- 제5부: 한국 판매 채널 전략 -->
+    <div class="page" id="part5">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 5</div>
+            <div class="chapter-title">한국 판매 채널 전략</div>
+        </div>
+        
+        <h2>5.1 네이버 스마트스토어 성공 전략</h2>
+        
+        <div class="key-point-box textbook-box">
+            <h3>스마트스토어 매출 급상승 공식</h3>
+            <ul>
+                <li><strong>상품명 최적화:</strong> 브랜드명 + 일본 정품 + 구매대행 키워드 필수</li>
+                <li><strong>대표 이미지:</strong> 정품 인증샷 + 한글 설명 오버레이</li>
+                <li><strong>가격 전략:</strong> 최저가 -5% 진입 후 점진적 인상</li>
+                <li><strong>리뷰 관리:</strong> 구매 후 7일 내 리뷰 유도 (적립금 제공)</li>
+            </ul>
+        </div>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>판매 채널별 특성 비교</caption>
+                <thead>
+                    <tr>
+                        <th>채널</th>
+                        <th>수수료</th>
+                        <th>주 고객층</th>
+                        <th>장단점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>스마트스토어</strong></td>
+                        <td>5.6%</td>
+                        <td>20-40대</td>
+                        <td>트래픽 높음, 경쟁 심함</td>
+                    </tr>
+                    <tr>
+                        <td><strong>쿠팡</strong></td>
+                        <td>10.8%</td>
+                        <td>30-50대</td>
+                        <td>로켓배송 신뢰도, 높은 수수료</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11번가</strong></td>
+                        <td>12%</td>
+                        <td>20-30대</td>
+                        <td>젊은 층 선호, 판매자 지원 우수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>인스타그램</strong></td>
+                        <td>0%</td>
+                        <td>10-30대</td>
+                        <td>수수료 없음, 직거래 리스크</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>5.2 쿠팡 로켓배송 입점 전략</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>윙 파트너스 가입</h4>
+                    <p>사업자 등록 → 통신판매업 신고 → 윙 가입 승인 (7일 소요)</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>로켓그로스 활용</h4>
+                    <p>재고 없이 판매 → 주문 확인 → 3일 내 쿠팡 물류센터 입고</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>가격 경쟁력 확보</h4>
+                    <p>최저가 대비 +3% 이내 유지 → 로켓배송 프리미엄으로 승부</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>5.3 인스타그램 마케팅</h2>
+        
+        <div class="pro-tip-box textbook-box">
+            <h3>인스타그램 판매 급증 노하우</h3>
+            <ol>
+                <li><strong>해시태그 전략:</strong> #일본구매대행 #일본직구 + 브랜드명 30개</li>
+                <li><strong>릴스 활용:</strong> 언박싱 영상으로 조회수 10배 상승</li>
+                <li><strong>스토리 하이라이트:</strong> 카테고리별 정리로 구매 전환율 UP</li>
+                <li><strong>라이브 방송:</strong> 주 1회 일본 쇼핑몰 실시간 쇼핑</li>
+            </ol>
+        </div>
+        
+        <h2>5.4 카페 및 블로그 운영</h2>
+        
+        <div class="example-box textbook-box">
+            <h3>성공적인 카페 운영 사례</h3>
+            <p><strong>월 매출 1,000만원 달성한 A씨의 전략:</strong></p>
+            <ul>
+                <li>네이버 카페 3개 동시 운영 (피규어, 의류, 잡화)</li>
+                <li>매일 신상품 10개 포스팅</li>
+                <li>공동구매로 구매력 강화</li>
+                <li>등급별 할인 혜택으로 충성 고객 확보</li>
+            </ul>
+        </div>
+        
+        <div class="page-number">73-96</div>
+    </div>
+    
+    <!-- 제6부: 실무 프로세스 A to Z -->
+    <div class="page" id="part6">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 6</div>
+            <div class="chapter-title">실무 프로세스 A to Z</div>
+        </div>
+        
+        <h2>6.1 주문 접수부터 배송까지</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>주문 접수 (D-Day)</h4>
+                    <p>고객 주문 확인 → 재고 체크 → 결제 확인 → 주문 확정 안내</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>일본 구매 (D+1)</h4>
+                    <p>비드바이 주문 → 결제 진행 → 구매 완료 스크린샷 고객 전송</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>일본 내 배송 (D+2~3)</h4>
+                    <p>쇼핑몰 → 비드바이 물류센터 → 검수 및 포장</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>국제 배송 (D+4~7)</h4>
+                    <p>일본 출고 → 통관 → 국내 배송 → 고객 수령</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>6.2 고객 응대 매뉴얼</h2>
+        
+        <div class="checklist">
+            <div class="checklist-title">상황별 응대 스크립트</div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span><strong>재고 문의:</strong> "실시간 확인 후 30분 내 답변드리겠습니다"</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span><strong>배송 지연:</strong> "현재 통관 진행 중이며, 2-3일 내 수령 예정입니다"</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span><strong>가격 문의:</strong> "환율 변동으로 실시간 견적 제공해드립니다"</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span><strong>교환/환불:</strong> "일본 직구 특성상 신중한 구매 부탁드립니다"</span>
+            </div>
+        </div>
+        
+        <h2>6.3 재고 관리 시스템</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>효율적인 재고 관리 방법</caption>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>방식</th>
+                        <th>장점</th>
+                        <th>단점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>무재고</strong></td>
+                        <td>주문 후 구매</td>
+                        <td>자금 부담 없음</td>
+                        <td>품절 리스크</td>
+                    </tr>
+                    <tr>
+                        <td><strong>소량 재고</strong></td>
+                        <td>베스트 상품만</td>
+                        <td>빠른 배송</td>
+                        <td>재고 부담</td>
+                    </tr>
+                    <tr>
+                        <td><strong>예약 판매</strong></td>
+                        <td>선주문 후구매</td>
+                        <td>자금 회전 우수</td>
+                        <td>고객 대기</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>6.4 회계 및 세무 관리</h2>
+        
+        <div class="warning-box textbook-box">
+            <h3>세무 신고 체크리스트</h3>
+            <ul>
+                <li><strong>부가세 신고:</strong> 분기별 (1,4,7,10월 25일까지)</li>
+                <li><strong>종합소득세:</strong> 연 1회 (5월 31일까지)</li>
+                <li><strong>필요 서류:</strong> 세금계산서, 카드 매출전표, 통관 서류</li>
+                <li><strong>절세 TIP:</strong> 간이과세자 적용 시 부가세 50% 절감</li>
+            </ul>
+        </div>
+        
+        <div class="page-number">97-124</div>
+    </div>
+    
+    <!-- 제7부: 리스크 관리와 법적 이슈 -->
+    <div class="page" id="part7">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 7</div>
+            <div class="chapter-title">리스크 관리와 법적 이슈</div>
+        </div>
+        
+        <h2>7.1 통관 불가 품목 완벽 정리</h2>
+        
+        <div class="warning-box textbook-box">
+            <h3>절대 구매 금지 품목</h3>
+            <ul>
+                <li><strong>식품:</strong> 모든 가공/신선 식품 (샘플 소량 제외)</li>
+                <li><strong>의약품:</strong> 처방약, 일반의약품 모두 불가</li>
+                <li><strong>화장품:</strong> 개인사용 6개 초과 시 불가</li>
+                <li><strong>전파인증:</strong> KC 미인증 전자제품</li>
+                <li><strong>위험물:</strong> 배터리, 향수, 스프레이</li>
+            </ul>
+        </div>
+        
+        <h2>7.2 환율 리스크 관리</h2>
+        
+        <div class="pro-tip-box textbook-box">
+            <h3>환율 변동 대응 전략</h3>
+            <ol>
+                <li><strong>헤징 전략:</strong> 엔화 예금으로 환율 방어</li>
+                <li><strong>가격 정책:</strong> 환율 변동 ±5% 흡수, 초과 시 조정</li>
+                <li><strong>구매 타이밍:</strong> 엔/원 1,000원 이하 시 대량 구매</li>
+                <li><strong>고객 안내:</strong> 주문 시점 환율 적용 명시</li>
+            </ol>
+        </div>
+        
+        <h2>7.3 분쟁 해결 가이드</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>분쟁 유형별 해결 방안</caption>
+                <thead>
+                    <tr>
+                        <th>분쟁 유형</th>
+                        <th>발생 원인</th>
+                        <th>해결 방법</th>
+                        <th>예방책</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>품절 취소</strong></td>
+                        <td>재고 소진</td>
+                        <td>전액 환불 + 사과품</td>
+                        <td>실시간 재고 확인</td>
+                    </tr>
+                    <tr>
+                        <td><strong>배송 지연</strong></td>
+                        <td>통관 지연</td>
+                        <td>부분 환불 10%</td>
+                        <td>여유있는 배송 안내</td>
+                    </tr>
+                    <tr>
+                        <td><strong>상품 하자</strong></td>
+                        <td>운송 중 파손</td>
+                        <td>교환 또는 전액 환불</td>
+                        <td>포장 강화</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가품 의심</strong></td>
+                        <td>고객 오해</td>
+                        <td>정품 인증서 제공</td>
+                        <td>구매 영수증 첨부</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>7.4 보험 및 보상 제도</h2>
+        
+        <div class="key-point-box textbook-box">
+            <h3>필수 가입 보험</h3>
+            <ul>
+                <li><strong>배송 보험:</strong> EMS 자동 포함 (최대 200만원)</li>
+                <li><strong>통관 보험:</strong> 압수/폐기 시 보상 (선택)</li>
+                <li><strong>PL 보험:</strong> 제조물 책임보험 (전자제품 필수)</li>
+                <li><strong>영업 배상책임보험:</strong> 고객 피해 보상</li>
+            </ul>
+        </div>
+        
+        <h2>7.5 법적 준수사항</h2>
+        
+        <div class="checklist">
+            <div class="checklist-title">사업자 필수 준수사항</div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>사업자등록 완료</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>통신판매업 신고</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>개인정보처리방침 게시</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>전자상거래법 준수</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>소비자보호법 숙지</span>
+            </div>
+        </div>
+        
+        <div class="page-number">125-152</div>
+    </div>
+    
+    <!-- 제8부: 수익 극대화 고급 전략 -->
+    <div class="page" id="part8">
+        <div class="chapter-header">
+            <div class="chapter-number">PART 8</div>
+            <div class="chapter-title">수익 극대화 고급 전략</div>
+        </div>
+        
+        <h2>8.1 대량 구매 협상 노하우</h2>
+        
+        <div class="step-guide">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>구매력 결집</h4>
+                    <p>공동구매 모집 → 100개 이상 수량 확보</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>직접 협상</h4>
+                    <p>제조사/도매상 직접 컨택 → 20-30% 할인 요청</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>장기 계약</h4>
+                    <p>6개월 구매 약정 → 추가 10% 할인 + 독점권</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>8.2 프리미엄 서비스 전략</h2>
+        
+        <div class="example-box textbook-box">
+            <h3>고수익 프리미엄 서비스</h3>
+            <ul>
+                <li><strong>컨시어지 서비스:</strong> 희귀템 수배 (수수료 30%)</li>
+                <li><strong>구독 서비스:</strong> 월정액 정기배송 (마진 40%)</li>
+                <li><strong>커스텀 서비스:</strong> 이름 각인, 선물포장 (추가 2만원)</li>
+                <li><strong>익스프레스:</strong> 48시간 특급배송 (프리미엄 5만원)</li>
+            </ul>
+        </div>
+        
+        <h2>8.3 자동화 시스템 구축</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>업무 자동화 도구</caption>
+                <thead>
+                    <tr>
+                        <th>업무</th>
+                        <th>도구</th>
+                        <th>비용</th>
+                        <th>효율성</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>주문관리</strong></td>
+                        <td>셀큐</td>
+                        <td>월 3만원</td>
+                        <td>80% 시간 절약</td>
+                    </tr>
+                    <tr>
+                        <td><strong>재고관리</strong></td>
+                        <td>스마트스토어 자체 기능</td>
+                        <td>무료</td>
+                        <td>실시간 동기화</td>
+                    </tr>
+                    <tr>
+                        <td><strong>고객응대</strong></td>
+                        <td>챗봇 + 템플릿</td>
+                        <td>월 1만원</td>
+                        <td>70% 자동응답</td>
+                    </tr>
+                    <tr>
+                        <td><strong>회계관리</strong></td>
+                        <td>세무비서</td>
+                        <td>월 5만원</td>
+                        <td>자동 세금계산</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>8.4 스케일업 전략</h2>
+        
+        <div class="data-viz">
+            <div class="data-viz-title">월 매출 1억 달성 로드맵</div>
+            <div style="text-align: center;">
+                <div class="stat-card">
+                    <div class="stat-number">1-3개월</div>
+                    <div class="stat-label">월 500만원</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4-6개월</div>
+                    <div class="stat-label">월 2,000만원</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7-12개월</div>
+                    <div class="stat-label">월 5,000만원</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13-18개월</div>
+                    <div class="stat-label">월 1억원</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>8.5 엑시트 전략</h2>
+        
+        <div class="key-point-box textbook-box">
+            <h3>사업 매각 시 기업가치 평가</h3>
+            <ul>
+                <li><strong>월 매출 1억:</strong> 매각가 3-5억</li>
+                <li><strong>고객 DB 1만명:</strong> +1억 추가 가치</li>
+                <li><strong>독점 계약권:</strong> +2억 추가 가치</li>
+                <li><strong>자동화 시스템:</strong> +5천만원 추가 가치</li>
+            </ul>
+        </div>
+        
+        <div class="page-number">153-176</div>
+    </div>
+    
+    <!-- 부록: 실전 도구 모음 -->
+    <div class="page" id="appendix">
+        <div class="chapter-header">
+            <div class="chapter-number">APPENDIX</div>
+            <div class="chapter-title">실전 도구 모음</div>
+        </div>
+        
+        <h2>A.1 유용한 사이트 모음</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>카테고리별 필수 사이트</caption>
+                <thead>
+                    <tr>
+                        <th>카테고리</th>
+                        <th>사이트명</th>
+                        <th>용도</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>환율</strong></td>
+                        <td>하나은행</td>
+                        <td>실시간 환율</td>
+                        <td>hanabank.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>번역</strong></td>
+                        <td>DeepL</td>
+                        <td>정확한 일본어 번역</td>
+                        <td>deepl.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>트렌드</strong></td>
+                        <td>구글 트렌드</td>
+                        <td>검색 동향 분석</td>
+                        <td>trends.google.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가격비교</strong></td>
+                        <td>카카쿠</td>
+                        <td>일본 최저가 검색</td>
+                        <td>kakaku.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>리뷰</strong></td>
+                        <td>아마존 리뷰</td>
+                        <td>상품 평가 확인</td>
+                        <td>amazon.co.jp</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>A.2 일본어 핵심 용어집</h2>
+        
+        <div class="glossary-item">
+            <div class="glossary-term">
+                新品 <span class="glossary-term-jp">(신핀)</span>
+            </div>
+            <div class="glossary-definition">
+                새 상품, 미개봉 상태
+            </div>
+        </div>
+        
+        <div class="glossary-item">
+            <div class="glossary-term">
+                中古 <span class="glossary-term-jp">(츄코)</span>
+            </div>
+            <div class="glossary-definition">
+                중고품, 사용감 있는 상품
+            </div>
+        </div>
+        
+        <div class="glossary-item">
+            <div class="glossary-term">
+                在庫あり <span class="glossary-term-jp">(자이코아리)</span>
+            </div>
+            <div class="glossary-definition">
+                재고 있음, 즉시 구매 가능
+            </div>
+        </div>
+        
+        <div class="glossary-item">
+            <div class="glossary-term">
+                送料無料 <span class="glossary-term-jp">(소료무료)</span>
+            </div>
+            <div class="glossary-definition">
+                배송료 무료 (일본 내)
+            </div>
+        </div>
+        
+        <div class="glossary-item">
+            <div class="glossary-term">
+                限定品 <span class="glossary-term-jp">(겐테이힌)</span>
+            </div>
+            <div class="glossary-definition">
+                한정품, 수량/기간 한정 상품
+            </div>
+        </div>
+        
+        <h2>A.3 FAQ TOP 10</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q1</div>
+                <span>일본어를 전혀 몰라도 구매대행이 가능한가요?</span>
+            </div>
+            <div class="faq-answer">
+                네, 가능합니다. 구글 번역기와 이미지 검색을 활용하면 충분합니다. 비드바이 코리아는 한국어로 모든 서비스를 제공하므로 언어 장벽 없이 구매 가능합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q2</div>
+                <span>초기 자금은 얼마나 필요한가요?</span>
+            </div>
+            <div class="faq-answer">
+                최소 100만원이면 시작 가능합니다. 상품 구매 자금 70만원, 운영비 30만원 정도로 배분하시면 됩니다. 무재고 판매로 시작하면 50만원으로도 가능합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q3</div>
+                <span>통관이 막히면 어떻게 하나요?</span>
+            </div>
+            <div class="faq-answer">
+                비드바이 코리아에서 통관 대행을 해드립니다. 만약 통관 불가 판정이 나면 일본으로 반송 후 환불 처리됩니다. 사전에 통관 가능 여부를 확인하는 것이 중요합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q4</div>
+                <span>배송 기간은 얼마나 걸리나요?</span>
+            </div>
+            <div class="faq-answer">
+                EMS는 3-4일, 항공소포는 5-7일, 선편은 10-14일 소요됩니다. 급한 상품은 EMS, 일반 상품은 항공소포를 추천합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q5</div>
+                <span>가품이 올 가능성은 없나요?</span>
+            </div>
+            <div class="faq-answer">
+                아마존, 라쿠텐 등 공식 쇼핑몰에서 구매하면 가품 가능성은 0%입니다. 메르카리나 야후옥션의 경우 판매자 평점을 확인하고 구매하시기 바랍니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q6</div>
+                <span>환율이 급등하면 어떻게 대처하나요?</span>
+            </div>
+            <div class="faq-answer">
+                주문 시점의 환율을 적용한다고 사전 공지하시고, 환율 변동폭이 5% 이상일 경우 가격을 조정하시면 됩니다. 장기적으로는 엔화 예금으로 헤징하는 것을 추천합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q7</div>
+                <span>세금은 어떻게 처리하나요?</span>
+            </div>
+            <div class="faq-answer">
+                연 매출 4,800만원 이하는 간이과세자로 부가세 1.5%만 납부합니다. 초과 시 일반과세자로 전환되어 10% 납부해야 합니다. 분기별 부가세 신고를 잊지 마세요.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q8</div>
+                <span>고객 클레임은 어떻게 처리하나요?</span>
+            </div>
+            <div class="faq-answer">
+                먼저 사과하고 경청한 후, 합리적인 보상안을 제시하세요. 배송 지연은 부분 환불, 상품 하자는 교환 또는 전액 환불로 처리합니다. 신속한 대응이 가장 중요합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q9</div>
+                <span>어떤 상품이 가장 잘 팔리나요?</span>
+            </div>
+            <div class="faq-answer">
+                피규어, 한정판 의류, 게임 관련 상품이 가장 인기입니다. 시즌별로는 벚꽃 시즌 한정품, 연말 복주머니 등이 고수익 상품입니다. 트렌드를 계속 모니터링하세요.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-number">Q10</div>
+                <span>월 500만원 수익이 정말 가능한가요?</span>
+            </div>
+            <div class="faq-answer">
+                네, 충분히 가능합니다. 하루 10건 × 건당 마진 2만원 × 25일 = 월 500만원입니다. 다만 초기 3개월은 학습 기간으로 보시고, 6개월차부터 본격적인 수익을 기대하세요.
+            </div>
+        </div>
+        
+        <h2>A.4 체크리스트 모음</h2>
+        
+        <div class="checklist">
+            <div class="checklist-title">일일 업무 체크리스트</div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>환율 확인 및 가격 조정</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>신규 주문 확인 및 처리</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>재고 현황 업데이트</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>배송 추적 및 고객 안내</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>신상품 리서치 (최소 10개)</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>SNS 포스팅 (최소 3개)</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>고객 문의 응대</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>매출/수익 일일 정산</span>
+            </div>
+        </div>
+        
+        <div class="checklist">
+            <div class="checklist-title">월간 업무 체크리스트</div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>월 매출/수익 분석</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>베스트/워스트 상품 분석</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>경쟁사 동향 조사</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>고객 DB 정리 및 등급 조정</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>프로모션 기획 및 실행</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <span>세금 관련 서류 정리</span>
+            </div>
+        </div>
+        
+        <h2>A.5 긴급 연락처</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <caption>문제 발생 시 연락처</caption>
+                <thead>
+                    <tr>
+                        <th>기관/업체</th>
+                        <th>연락처</th>
+                        <th>운영시간</th>
+                        <th>용도</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>비드바이 코리아</strong></td>
+                        <td>1544-0000</td>
+                        <td>09:00-18:00</td>
+                        <td>구매대행 문의</td>
+                    </tr>
+                    <tr>
+                        <td><strong>관세청</strong></td>
+                        <td>125</td>
+                        <td>09:00-18:00</td>
+                        <td>통관 문의</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EMS</strong></td>
+                        <td>1588-1300</td>
+                        <td>09:00-18:00</td>
+                        <td>국제배송 추적</td>
+                    </tr>
+                    <tr>
+                        <td><strong>소비자보호원</strong></td>
+                        <td>1372</td>
+                        <td>09:00-18:00</td>
+                        <td>분쟁 조정</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-number">177-209</div>
+    </div>
+    
+    <!-- 맺음말 -->
+    <div class="page">
+        <div class="chapter-header">
+            <div class="chapter-number">EPILOGUE</div>
+            <div class="chapter-title">맺음말</div>
+        </div>
+        
+        <h2>당신의 성공을 응원합니다</h2>
+        
+        <p>지금까지 일본 구매대행의 A부터 Z까지 모든 것을 다루었습니다. 이 책에서 제시한 전략과 노하우는 모두 <strong>46,222건의 실제 거래 데이터</strong>를 기반으로 검증된 방법들입니다.</p>
+        
+        <div class="key-point-box textbook-box">
+            <h3>성공의 3가지 핵심</h3>
+            <ol>
+                <li><strong>꾸준함:</strong> 매일 조금씩이라도 상품 리서치와 고객 응대를 게을리하지 마세요.</li>
+                <li><strong>데이터:</strong> 감이 아닌 숫자로 의사결정하세요. 모든 거래를 기록하고 분석하세요.</li>
+                <li><strong>고객 중심:</strong> 단기 수익보다 장기 신뢰를 선택하세요. 정직이 최고의 마케팅입니다.</li>
+            </ol>
+        </div>
+        
+        <h2>마지막 당부의 말씀</h2>
+        
+        <p>일본 구매대행은 누구나 할 수 있지만, 아무나 성공할 수는 없습니다. 이 책의 내용을 충실히 따라 실행한다면, 여러분도 <strong>월 500만원 이상의 안정적인 수익</strong>을 창출할 수 있을 것입니다.</p>
+        
+        <p>처음에는 어렵고 실수도 많겠지만, 포기하지 마세요. 모든 전문가도 한때는 초보자였습니다. 여러분의 도전이 성공으로 이어지기를 진심으로 응원합니다.</p>
+        
+        <div class="tip-box textbook-box">
+            <h3>추가 학습 자료</h3>
+            <ul>
+                <li>네이버 카페: 일본구매대행 마스터즈</li>
+                <li>유튜브 채널: 구매대행 성공스쿨</li>
+                <li>카카오톡 오픈채팅: 일본직구 정보공유방</li>
+                <li>월간 세미나: 비드바이 코리아 정기 교육</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <h3>Special Thanks</h3>
+            <p>이 책이 나오기까지 도움을 주신 모든 분들께 감사드립니다.</p>
+            <p style="margin-top: 30px;"><strong>비드바이 코리아 공식 가이드북</strong></p>
+            <p>2024-2025 Edition</p>
+            <p style="margin-top: 20px; font-size: 12px; color: #7f8c8d;">
+                Copyright © 2025 BidBuy Korea. All rights reserved.<br>
+                본 자료의 무단 복제 및 배포를 금지합니다.
+            </p>
+        </div>
+        
+        <div class="page-number">210</div>
+    </div>
+    
+    <script>
+        // 모바일 메뉴 토글
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+        
+        // 메뉴 링크 클릭 시 메뉴 닫기
+        document.querySelectorAll('.toc-mobile a').forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+        });
+        
+        // Top 버튼
+        const btnTop = document.getElementById('btnTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        });
+        
+        btnTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 60;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 프린트 최적화
+        window.addEventListener('beforeprint', function() {
+            document.body.classList.add('printing');
+        });
+        
+        window.addEventListener('afterprint', function() {
+            document.body.classList.remove('printing');
+        });
+        
+        // 테이블 스크롤 힌트
+        document.querySelectorAll('.table-wrapper').forEach(wrapper => {
+            const table = wrapper.querySelector('table');
+            if (table && table.scrollWidth > wrapper.clientWidth) {
+                wrapper.classList.add('scrollable');
+            }
+        });
+        
+        // FAQ 토글 (옵션)
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+        
+        // 페이지 로드 시 스크롤 위치 복원 방지
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // 초기 로드 시 맨 위로
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>
