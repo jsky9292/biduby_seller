@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일본 구매대행 마스터 가이드 2025 - 비밀번호 확인</title>
+    <title>일본 구매대행 마스터 가이드 2025</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
         
         * {
             margin: 0;
@@ -13,8 +13,17 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-color: #3A2929;
+            --secondary-color: #FEE500;
+            --accent-color: #FAE100;
+            --gold-color: #FFC700;
+            --success-color: #5CB85C;
+            --danger-color: #e74c3c;
+        }
+        
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
             background: linear-gradient(135deg, #FEE500 0%, #FFC700 100%);
             min-height: 100vh;
             display: flex;
@@ -23,271 +32,405 @@
             padding: 20px;
         }
         
-        .login-container {
+        .container {
             background: white;
-            padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
             width: 100%;
-            text-align: center;
+            padding: 60px 40px;
+            animation: fadeIn 0.8s ease;
         }
         
-        .logo {
-            font-size: 60px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
             margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
         
         h1 {
-            color: #191919;
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
         
         .subtitle {
+            font-size: 20px;
             color: #666;
-            font-size: 16px;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
         
-        .password-group {
+        .data-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .data-badge strong {
+            color: var(--danger-color);
+            font-size: 22px;
+        }
+        
+        .version-selection {
+            margin-top: 50px;
+        }
+        
+        .version-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
             margin-bottom: 30px;
         }
         
-        .password-label {
+        .version-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .version-card {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .version-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .version-card.recommended {
+            border-color: var(--success-color);
+        }
+        
+        .version-card.recommended::before {
+            content: '추천';
+            position: absolute;
+            top: 15px;
+            right: -25px;
+            background: var(--success-color);
+            color: white;
+            padding: 5px 30px;
+            font-size: 12px;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+        
+        .version-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
             display: block;
-            color: #333;
+        }
+        
+        .version-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .version-description {
             font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 10px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .version-features {
+            list-style: none;
             text-align: left;
+            margin-bottom: 25px;
         }
         
-        .password-input {
-            width: 100%;
-            padding: 15px;
+        .version-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .version-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: 700;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
             font-size: 16px;
-            border: 2px solid #ddd;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--gold-color) 100%);
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(254, 229, 0, 0.5);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(58, 41, 41, 0.5);
+        }
+        
+        .info-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 10px;
-            transition: all 0.3s;
+            padding: 25px;
+            margin-top: 40px;
         }
         
-        .password-input:focus {
-            outline: none;
-            border-color: #FEE500;
-            box-shadow: 0 0 0 3px rgba(254, 229, 0, 0.2);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: #191919;
-            color: #FEE500;
+        .info-title {
             font-size: 18px;
             font-weight: 700;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
+            color: var(--primary-color);
+            margin-bottom: 15px;
         }
         
-        .submit-btn:hover {
-            background: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .info-list {
+            list-style: none;
         }
         
-        .error-message {
-            color: #e74c3c;
+        .info-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
             font-size: 14px;
-            margin-top: 15px;
-            display: none;
+            color: #555;
         }
         
-        .hint {
-            color: #999;
-            font-size: 13px;
-            margin-top: 20px;
+        .info-list li:last-child {
+            border-bottom: none;
         }
         
-        .features {
+        .info-list strong {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .footer {
+            text-align: center;
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #dee2e6;
+            color: #999;
+            font-size: 13px;
         }
         
-        .feature-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 15px;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: #FEE500;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            font-size: 12px;
-        }
-        
-        #contentFrame {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            border: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .version-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
         }
         
         .loading {
             display: none;
-            color: #666;
-            margin-top: 20px;
-        }
-        
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0,0,0,.1);
-            border-radius: 50%;
-            border-top-color: #FEE500;
-            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+            animation: spin 1s linear infinite;
         }
         
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="login-container" id="loginContainer">
-        <div class="logo">📚</div>
-        <h1>일본 구매대행 마스터 가이드</h1>
-        <div class="subtitle">2025년 26,000건 빅데이터 분석 완전판</div>
-        
-        <div class="password-group">
-            <label class="password-label" for="password">비밀번호를 입력하세요</label>
-            <input 
-                type="password" 
-                id="password" 
-                class="password-input" 
-                placeholder="비밀번호 입력"
-                onkeypress="if(event.keyCode==13) checkPassword()"
-            >
+    <div class="container">
+        <div class="header">
+            <span class="badge">2025 PREMIUM EDITION</span>
+            <h1>일본 구매대행<br>마스터 가이드</h1>
+            <div class="subtitle">초보자부터 전문가까지</div>
+            <div class="subtitle">월 500만원 수익 창출 완벽 매뉴얼</div>
+            <div class="data-badge">
+                🎯 <strong>약 5만여건</strong>의 거래 데이터 분석<br>
+                📊 12개 카테고리 완전 정복
+            </div>
         </div>
         
-        <button class="submit-btn" onclick="checkPassword()">가이드북 열람하기</button>
-        
-        <div class="error-message" id="errorMessage">
-            비밀번호가 일치하지 않습니다. 다시 시도해주세요.
+        <div class="version-selection">
+            <h2 class="version-title">원하시는 버전을 선택하세요</h2>
+            
+            <div class="version-cards">
+                <div class="version-card recommended" onclick="openMobileVersion()">
+                    <span class="version-icon">📱</span>
+                    <div class="version-name">모바일 최적화 버전</div>
+                    <div class="version-description">
+                        스마트폰과 태블릿에서 최적의 읽기 경험을 제공합니다
+                    </div>
+                    <ul class="version-features">
+                        <li>모바일 친화적 디자인</li>
+                        <li>터치 최적화 인터페이스</li>
+                        <li>빠른 로딩 속도</li>
+                        <li>오프라인 읽기 가능</li>
+                        <li>반응형 레이아웃</li>
+                    </ul>
+                    <button class="btn btn-primary">
+                        모바일 버전 열기
+                        <span class="loading" id="mobile-loading">⏳</span>
+                    </button>
+                </div>
+                
+                <div class="version-card" onclick="openPdfVersion()">
+                    <span class="version-icon">📄</span>
+                    <div class="version-name">PDF 다운로드 버전</div>
+                    <div class="version-description">
+                        인쇄 및 오프라인 보관용 고품질 PDF 문서입니다
+                    </div>
+                    <ul class="version-features">
+                        <li>A4 사이즈 최적화</li>
+                        <li>고해상도 인쇄 가능</li>
+                        <li>북마크 기능 지원</li>
+                        <li>영구 보관 가능</li>
+                        <li>주석 추가 가능</li>
+                    </ul>
+                    <button class="btn btn-secondary">
+                        PDF 버전 열기
+                        <span class="loading" id="pdf-loading">⏳</span>
+                    </button>
+                </div>
+            </div>
         </div>
         
-        <div class="loading" id="loadingMessage">
-            <div class="spinner"></div>
-            <p>가이드북을 불러오는 중...</p>
+        <div class="info-section">
+            <h3 class="info-title">📚 수록 내용</h3>
+            <ul class="info-list">
+                <li><strong>제1부:</strong> 일본 구매대행 기초 개념과 시작 방법</li>
+                <li><strong>제2부:</strong> 구매대행 플랫폼 200% 활용법</li>
+                <li><strong>제3부:</strong> 빅데이터 기반 수익성 상품 발굴</li>
+                <li><strong>제4부:</strong> 일본 5대 쇼핑몰 완벽 공략</li>
+                <li><strong>제5부:</strong> 한국 판매 채널별 전략</li>
+                <li><strong>제6부:</strong> 실무 프로세스 A to Z</li>
+                <li><strong>제7부:</strong> 리스크 관리와 법적 준수사항</li>
+                <li><strong>제8부:</strong> 월 1억 달성 수익 극대화 전략</li>
+                <li><strong>부록:</strong> 실전 도구 모음 & FAQ TOP 10</li>
+            </ul>
         </div>
         
-        <div class="hint">
-            💡 힌트: 비드바이 영문명
-        </div>
-        
-        <div class="features">
-            <div class="feature-item">
-                <div class="feature-icon">✓</div>
-                <span>2025년 실거래 26,000건 데이터 분석</span>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">✓</div>
-                <span>카테고리별 수익성 완전 분석</span>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">✓</div>
-                <span>비드바이 코리아 활용법 포함</span>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">✓</div>
-                <span>월 500만원 수익 달성 로드맵</span>
-            </div>
+        <div class="footer">
+            <p>Copyright © 2025 구매대행 가이드. All rights reserved.</p>
+            <p>본 자료의 무단 복제 및 배포를 금지합니다.</p>
         </div>
     </div>
     
-    <iframe id="contentFrame"></iframe>
-    
     <script>
-        // 비밀번호 (실제로는 더 안전한 방법을 사용해야 하지만, GitHub Pages는 서버사이드 처리가 불가능)
-        const correctPassword = 'bidbuy';
-        
-        // 실제 컨텐츠 URL (GitHub에 업로드 후 수정 필요)
-        const contentUrl = './ebook_complete_improved.html';
-        
-        function checkPassword() {
-            const inputPassword = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-            const loadingMessage = document.getElementById('loadingMessage');
-            const loginContainer = document.getElementById('loginContainer');
-            const contentFrame = document.getElementById('contentFrame');
+        function openMobileVersion() {
+            const loading = document.getElementById('mobile-loading');
+            loading.style.display = 'inline-block';
             
-            if (inputPassword.toLowerCase() === correctPassword) {
-                // 비밀번호가 맞으면
-                errorMessage.style.display = 'none';
-                loadingMessage.style.display = 'block';
-                
-                // 로컬 스토리지에 인증 정보 저장 (세션 유지)
-                sessionStorage.setItem('authenticated', 'true');
-                sessionStorage.setItem('authTime', Date.now());
-                
-                // 컨텐츠 로드
-                setTimeout(() => {
-                    loginContainer.style.display = 'none';
-                    contentFrame.style.display = 'block';
-                    contentFrame.src = contentUrl;
-                }, 1000);
-                
-            } else {
-                // 비밀번호가 틀리면
-                errorMessage.style.display = 'block';
-                document.getElementById('password').value = '';
-                
-                // 애니메이션 효과
-                document.getElementById('password').style.borderColor = '#e74c3c';
-                setTimeout(() => {
-                    document.getElementById('password').style.borderColor = '#ddd';
-                }, 1000);
-            }
+            // 모바일 버전으로 이동
+            setTimeout(() => {
+                window.location.href = 'ebook_mobile_optimized.html';
+            }, 500);
         }
         
-        // 페이지 로드 시 이미 인증되었는지 확인
-        window.onload = function() {
-            const authenticated = sessionStorage.getItem('authenticated');
-            const authTime = sessionStorage.getItem('authTime');
+        function openPdfVersion() {
+            const loading = document.getElementById('pdf-loading');
+            loading.style.display = 'inline-block';
             
-            // 30분 이내에 인증했으면 자동으로 컨텐츠 표시
-            if (authenticated === 'true' && authTime) {
-                const timeDiff = Date.now() - parseInt(authTime);
-                if (timeDiff < 30 * 60 * 1000) { // 30분
-                    document.getElementById('loginContainer').style.display = 'none';
-                    document.getElementById('contentFrame').style.display = 'block';
-                    document.getElementById('contentFrame').src = contentUrl;
-                } else {
-                    // 30분이 지났으면 인증 정보 삭제
-                    sessionStorage.removeItem('authenticated');
-                    sessionStorage.removeItem('authTime');
-                }
-            }
+            // PDF 버전 (데스크톱 버전)으로 이동
+            setTimeout(() => {
+                window.location.href = 'ebook_complete_improved.html';
+            }, 500);
         }
         
-        // Enter 키 이벤트는 HTML에서 처리
+        // 디바이스 감지 및 자동 추천
+        window.addEventListener('load', function() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // 모바일 디바이스인 경우 모바일 버전 카드 강조
+                document.querySelectorAll('.version-card')[0].style.borderColor = 'var(--secondary-color)';
+            }
+        });
+        
+        // 키보드 단축키
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '1') {
+                openMobileVersion();
+            } else if (e.key === '2') {
+                openPdfVersion();
+            }
+        });
     </script>
 </body>
 </html>
